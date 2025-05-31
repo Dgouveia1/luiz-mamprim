@@ -3,9 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dr. Luiz Henrique Mamprin | Advogado Especialista em Direito Penal e Família</title>
-    <meta name="description" content="Advogado especializado em Direito Penal e Direito de Família em Fernandópolis. Atendimento presencial e online. Consultoria jurídica personalizada.">
-    <meta name="keywords" content="advogado, direito penal, direito família, Fernandópolis, consultoria jurídica">
+    <title>Dr. Luiz Henrique Mamprin | Advogado Especialista</title>
+    <meta name="description" content="Advogado especializado em Direito Penal e Direito de Família em Fernandópolis">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
@@ -17,6 +16,7 @@
             --dark-blue: rgb(12, 36, 97);
             --lead-gray: rgb(70, 70, 70);
             --accent: rgba(12, 36, 97, 0.8);
+            --google-yellow: #fbbc04;
         }
         
         * {
@@ -330,6 +330,13 @@
             margin: 0 auto;
         }
         
+        .testimonials-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
         .testimonials-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -346,6 +353,12 @@
             display: flex;
             flex-direction: column;
             height: 100%;
+            transition: transform 0.3s;
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
         
         .testimonial-card::before {
@@ -369,6 +382,18 @@
             flex-grow: 1;
         }
         
+        .google-rating {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .stars {
+            color: var(--google-yellow);
+            font-size: 1.2rem;
+        }
+        
         .testimonial-author {
             display: flex;
             align-items: center;
@@ -383,12 +408,13 @@
             overflow: hidden;
             border: 2px solid var(--dark-blue);
             flex-shrink: 0;
-        }
-        
-        .author-avatar img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #f0f0f0;
+            color: var(--dark-blue);
+            font-weight: bold;
+            font-size: 1.5rem;
         }
         
         .author-info h4 {
@@ -400,6 +426,34 @@
         .author-info p {
             color: var(--light-gray);
             font-size: 0.9rem;
+        }
+        
+        .testimonial-date {
+            color: var(--light-gray);
+            font-size: 0.85rem;
+            margin-top: 5px;
+        }
+        
+        .google-badge {
+            display: inline-flex;
+            align-items: center;
+            background: #4285F4;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .google-badge:hover {
+            background: #3367d6;
+            transform: translateY(-2px);
+        }
+        
+        .google-badge i {
+            margin-right: 8px;
+            font-size: 1.2rem;
         }
         
         /* Cases */
@@ -677,6 +731,11 @@
             .testimonials-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .testimonials-header {
+                flex-direction: column;
+                gap: 20px;
+            }
         }
         
         @media (max-width: 576px) {
@@ -720,7 +779,7 @@
                     <img src="https://i.ibb.co/1JXfqB34/mamprim.png" alt="Dr. Luiz Henrique Mamprin">
                 </div>
                 <div class="logo-text">
-                   Dr. Luiz Henrique Mamprin
+                    Dr. Luiz Henrique Mamprin
                     <span>Advogado - OAB/SP N9486.984</span>
                 </div>
             </div>
@@ -806,53 +865,16 @@
     <!-- Testimonials -->
     <section class="testimonials" id="testimonials">
         <div class="container testimonials-container">
-            <h2 class="section-title">Depoimentos de Clientes</h2>
+            <div class="testimonials-header">
+                <h2 class="section-title">Depoimentos de Clientes</h2>
+                <a href="https://g.co/kgs/Tdk2oco" class="google-badge" target="_blank">
+                    <i class="fab fa-google"></i>
+                    Avalie no Google
+                </a>
+            </div>
             
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>O Dr. Luiz foi fundamental no meu caso de divórcio. Sua atuação profissional e sensível me ajudou a resolver uma situação complexa com o mínimo de desgaste emocional. Recomendo seus serviços a todos que precisam de um advogado competente e humano.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Marcela Silva">
-                        </div>
-                        <div class="author-info">
-                            <h4>Marcela Silva</h4>
-                            <p>Cliente de Direito de Família</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Fui injustamente acusado de um crime e o Dr. Luiz não apenas provou minha inocência, mas também demonstrou um comprometimento excepcional com o meu caso. Sua dedicação e conhecimento técnico foram decisivos para o resultado positivo.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Roberto Almeida">
-                        </div>
-                        <div class="author-info">
-                            <h4>Roberto Almeida</h4>
-                            <p>Cliente de Direito Penal</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-content">
-                        <p>Contratei o Dr. Luiz para cuidar do inventário da minha família após o falecimento do meu pai. Sua atuação foi impecável, resolvendo questões complexas de forma ágil e transparente. Um profissional que realmente se importa com seus clientes.</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-avatar">
-                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Carolina Mendes">
-                        </div>
-                        <div class="author-info">
-                            <h4>Carolina Mendes</h4>
-                            <p>Cliente de Direito de Família</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="testimonials-grid" id="google-reviews">
+                <!-- Os depoimentos serão inseridos aqui pelo JavaScript -->
             </div>
         </div>
     </section>
@@ -1027,6 +1049,80 @@
     </footer>
 
     <script>
+        // Dados de depoimentos reais (copiados da página do Google)
+        const googleReviews = [
+            {
+                author: "Daiani Viegas",
+                rating: 5,
+                comment: "Excelente profissional, responsável, ágil e dedicado a cumprir seu compromisso com seus clientes ! Deixa bem claro as leis, não mede esforços para que seu cliente saiba os pontos fortes e fracos do processo , pois sempre existirá dois lados ! Super indico o doutor em todas as situações e necessidades como um advogado .",
+                date: "Fevereiro de 2025"
+            },
+            {
+                author: "João Vitor Rodrigues",
+                rating: 5,
+                comment: "O melhor advogado da região Dr. Luiz Mamprin, super indico 100% aprovado!",
+                date: "Fevereiro de 2025"
+            },
+            {
+                author: "Joice Muniz",
+                rating: 5,
+                comment: "Ótimo atendimento, muito prestativo e excelente profissional recomendo a todos.",
+                date: "Mario de 2024"
+            },
+            {
+                author: "Ingrid Marina",
+                rating: 5,
+                comment: "Um ótimo profissional, resolveu meu problema, muito prestativo e atencioso recomendo a todos de olhos fechados",
+                date: "Junho de 2024"
+            },
+            {
+                author: "Francislaine Kojima",
+                rating: 5,
+                comment: "Sempre a disposição pra melhor acessorar juridicamente nas questões do dia a dia.",
+                date: "Março de 2025"
+            },
+            {
+                author: "Carmen lucia patricio cavallini",
+                rating: 5,
+                comment: "Fui bem atendida com gentileza e tive meu problema resolvido com sucesso",
+                date: "Fevereiro de 2025"
+            }
+        ];
+
+        // Função para renderizar os depoimentos
+        function renderGoogleReviews() {
+            const container = document.getElementById('google-reviews');
+            container.innerHTML = '';
+            
+            googleReviews.forEach(review => {
+                const stars = '★'.repeat(review.rating);
+                
+                const reviewElement = document.createElement('div');
+                reviewElement.className = 'testimonial-card';
+                reviewElement.innerHTML = `
+                    <div class="google-rating">
+                        <div class="stars" title="${review.rating} estrelas">
+                            ${stars}
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>${review.comment}</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            ${review.author.charAt(0)}
+                        </div>
+                        <div class="author-info">
+                            <h4>${review.author}</h4>
+                            <div class="testimonial-date">${review.date}</div>
+                        </div>
+                    </div>
+                `;
+                
+                container.appendChild(reviewElement);
+            });
+        }
+
         // Form submission
         document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1081,6 +1177,9 @@
                 }
             });
         });
+        
+        // Render reviews when page loads
+        document.addEventListener('DOMContentLoaded', renderGoogleReviews);
     </script>
 </body>
 </html>
