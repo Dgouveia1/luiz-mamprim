@@ -135,6 +135,33 @@
             cursor: pointer;
             color: var(--white);
         }
+
+        /* WhatsApp Button in Header */
+        .header-whatsapp {
+            margin-left: 20px;
+        }
+
+        .whatsapp-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #25D366;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: translateY(-2px);
+        }
+
+        .whatsapp-btn i {
+            font-size: 1.2rem;
+        }
         
         /* Hero Section */
         .hero {
@@ -790,12 +817,18 @@
                     <li><a href="#specialties">Especialidades</a></li>
                     <li><a href="#testimonials">Depoimentos</a></li>
                     <li><a href="#cases">Casos de Sucesso</a></li>
-                    <li><a href="#contact">Contato</a></li>
                 </ul>
                 <div class="mobile-menu">
                     <i class="fas fa-bars"></i>
                 </div>
             </nav>
+            
+            <div class="header-whatsapp">
+                <a href="https://api.whatsapp.com/message/VOBV4YPWM7JPK1?autoload=1&app_absent=0" class="whatsapp-btn" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
         </div>
     </header>
 
@@ -812,8 +845,8 @@
                 <a href="https://api.whatsapp.com/message/VOBV4YPWM7JPK1?autoload=1&app_absent=0" class="btn btn-primary">
                     <i class="fab fa-whatsapp"></i> Fale pelo WhatsApp
                 </a>
-                <a href="#contact" class="btn btn-secondary">
-                    <i class="fas fa-envelope"></i> Envie uma Mensagem
+                <a href="https://api.whatsapp.com/message/VOBV4YPWM7JPK1?autoload=1&app_absent=0" class="btn btn-secondary">
+                    <i class="fab fa-whatsapp"></i> Contato Direto
                 </a>
             </div>
         </div>
@@ -936,98 +969,6 @@
         </div>
     </section>
 
-    <!-- Contact -->
-    <section class="contact" id="contact">
-        <div class="container">
-            <div class="contact-container">
-                <div class="contact-info">
-                    <h2>Entre em Contato</h2>
-                    
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-map-marker-alt"></i>
-                            </div>
-                            <div>
-                                <p>Avenida Manoel Marques Rosa, 1075</p>
-                                <p>10º andar, sala 103</p>
-                                <p>Fernandópolis - SP, 15600-016</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                            <div>
-                                <p>luizmamprin@adv.oabsp.org.br</p>
-                            </div>
-                        </div>
-                        
-                        <div class="contact-item">
-                            <div class="contact-icon">
-                                <i class="fas fa-phone-alt"></i>
-                            </div>
-                            <div>
-                                <p>(17) 99632-4627</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-social">
-                        <a href="https://api.whatsapp.com/message/VOBV4YPWM7JPK1?autoload=1&app_absent=0" class="social-icon">
-                            <i class="fab fa-whatsapp"></i>
-                        </a>
-                        <a href="https://www.instagram.com/luiz_henriquemamprin/" class="social-icon">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="https://g.co/kgs/Tdk2oco" class="social-icon">
-                            <i class="fas fa-star"></i>
-                        </a>
-                    </div>
-                </div>
-                
-                <div class="contact-form">
-                    <h2>Envie uma Mensagem</h2>
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <label for="name">Nome Completo</label>
-                            <input type="text" id="name" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="phone">Telefone</label>
-                            <input type="tel" id="phone" class="form-control" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="subject">Assunto</label>
-                            <select id="subject" class="form-control" required>
-                                <option value="">Selecione um assunto</option>
-                                <option value="penal">Direito Penal</option>
-                                <option value="familia">Direito de Família</option>
-                                <option value="outros">Outros assuntos</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="message">Mensagem</label>
-                            <textarea id="message" class="form-control" required></textarea>
-                        </div>
-                        
-                        <button type="submit" class="btn btn-primary" style="width: 100%;">
-                            Enviar Mensagem
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Footer -->
     <footer>
@@ -1039,7 +980,6 @@
                 <a href="#specialties">Especialidades</a>
                 <a href="#testimonials">Depoimentos</a>
                 <a href="#cases">Casos de Sucesso</a>
-                <a href="#contact">Contato</a>
             </div>
             
             <div class="copyright">
@@ -1123,14 +1063,6 @@
             });
         }
 
-        // Form submission
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulate form submission
-            alert('Mensagem enviada com sucesso! Entraremos em contato em breve.');
-            this.reset();
-        });
         
         // Mobile menu toggle
         document.querySelector('.mobile-menu').addEventListener('click', function() {
