@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Help AI Assistants find the structured context file
+Allow: /llms.txt
+
+# Sitemap
+Sitemap: https://drluizmamprin.adv.br/sitemap.xml
