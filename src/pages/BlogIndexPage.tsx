@@ -81,7 +81,7 @@ export default function BlogIndexPage() {
         <section className="pt-4 pb-10">
           <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
             <SmartLink
-              to={`/blog/${featured.slug}`}
+              to={`/blog/${featured.slug}/`}
               className="grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-8 lg:gap-12 items-center p-6 sm:p-8 bg-[var(--bg-elev)] border border-[var(--border-soft)] rounded-[var(--radius-lg)] transition-colors hover:border-[var(--accent)]"
             >
               <div>
@@ -141,7 +141,7 @@ export default function BlogIndexPage() {
               {rest.map((post) => (
                 <SmartLink
                   key={post.slug}
-                  to={`/blog/${post.slug}`}
+                  to={`/blog/${post.slug}/`}
                   className="flex flex-col gap-3.5 p-7 bg-[var(--bg-elev)] border border-[var(--border-soft)] rounded-[var(--radius-md)] transition-all hover:border-[var(--accent)] hover:-translate-y-0.5 h-full"
                 >
                   <div className="flex gap-3 items-center font-[var(--font-mono)] text-[11px] text-[var(--text-muted)] tracking-[0.06em] uppercase">

@@ -3,6 +3,8 @@ import Footer from "../components/Footer";
 import Hero from "../components/Hero";
 import Marquee from "../components/Marquee";
 import Areas from "../components/Areas";
+import ServicesGrid from "../components/ServicesGrid";
+import CitiesStrip from "../components/CitiesStrip";
 import About from "../components/About";
 import Process from "../components/Process";
 import BlogPreview from "../components/BlogPreview";
@@ -144,6 +146,8 @@ export default function HomePage() {
         <Hero />
         <Marquee />
         <Areas />
+        <ServicesGrid />
+        <CitiesStrip />
         <About />
         <Process />
         <BlogPreview />

@@ -1,6 +1,8 @@
 import { motion } from "motion/react";
-import perfilImg from "../public/perfil.png";
+import perfilImg from "../public/perfil.webp";
+import perfilAvif from "../public/perfil.avif";
 import SmartLink from "./SmartLink";
+import Picture from "./Picture";
 
 const WHATSAPP_URL =
   "https://wa.me/5517996324627?text=Ol%C3%A1%20Dr.%20Luiz%2C%20gostaria%20de%20agendar%20uma%20consulta.";
@@ -34,9 +36,7 @@ export default function Hero() {
             </div>
 
             <h1 className="sr-only">
-              Advogado em Fernandópolis — Direito Penal e Direito de Família | Dr. Luiz Henrique
-              Mamprin (OAB/SP 486.984). Atendimento em Fernandópolis, Votuporanga, Jales, Estrela
-              d'Oeste, Meridiano, Pedranópolis, Macedônia e Mira Estrela.
+              Advogado em Fernandópolis — Direito Penal e Direito de Família
             </h1>
             <p
               aria-hidden="true"
@@ -45,14 +45,24 @@ export default function Hero() {
               Defesa <em>técnica</em>,<br /> decisão <em>humana.</em>
             </p>
 
-            <p className="text-[clamp(17px,1.3vw,19px)] text-[var(--text-soft)] leading-[1.55] max-w-[52ch] mb-8">
-              Advocacia especializada em{" "}
-              <strong className="text-[var(--text)] font-medium">Direito Penal</strong> e{" "}
-              <strong className="text-[var(--text)] font-medium">Direito de Família</strong> em
-              Fernandópolis/SP. Atendimento também em Votuporanga, Jales, Estrela d'Oeste,
-              Meridiano, Pedranópolis, Macedônia, Mira Estrela e demais comarcas da região
-              noroeste paulista. Você não está sozinho neste momento — e cada passo será explicado,
-              planejado e defendido com seriedade.
+            <p className="text-[clamp(18px,1.4vw,21px)] text-[var(--text)] leading-[1.5] max-w-[58ch] mb-4 font-[var(--font-display)]">
+              <strong className="font-normal">Dr. Luiz Henrique Mamprin</strong>{" "}
+              <span className="text-[var(--text-muted)] font-[var(--font-mono)] text-[12px] tracking-[0.1em] uppercase ml-1">
+                OAB/SP 486.984
+              </span>
+              <span className="block mt-2 text-[var(--text-soft)] text-[clamp(16px,1.2vw,18px)] font-[var(--font-body)] leading-[1.55]">
+                Advocacia especializada em{" "}
+                <strong className="text-[var(--text)] font-medium">Direito Penal</strong> e{" "}
+                <strong className="text-[var(--text)] font-medium">Direito de Família</strong> em
+                Fernandópolis/SP.
+              </span>
+            </p>
+
+            <p className="text-[clamp(15px,1.1vw,17px)] text-[var(--text-soft)] leading-[1.6] max-w-[58ch] mb-8">
+              Atendimento também em Votuporanga, Jales, Estrela d'Oeste, Meridiano, Pedranópolis,
+              Macedônia, Mira Estrela e demais comarcas da região noroeste paulista. Você não está
+              sozinho neste momento — e cada passo será explicado, planejado e defendido com
+              seriedade.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-12">
@@ -111,11 +121,17 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.15, ease: [0.2, 0.8, 0.2, 1] }}
             className="relative aspect-[4/5] w-full max-w-md mx-auto lg:max-w-none rounded-[var(--radius-lg)] overflow-hidden bg-[var(--bg-elev)]"
           >
-            <img
-              src={perfilImg}
-              alt="Dr. Luiz Henrique Mamprin, advogado em Fernandópolis"
+            <Picture
+              avif={perfilAvif}
+              webp={perfilImg}
+              fallback={perfilImg}
+              alt="Dr. Luiz Henrique Mamprin, advogado criminalista e de família em Fernandópolis/SP"
+              width={1066}
+              height={1333}
               className="w-full h-full object-cover"
               style={{ objectPosition: "center 18%", filter: "contrast(1.05) saturate(0.92)" }}
+              loading="eager"
+              fetchPriority="high"
             />
             <div
               className="absolute inset-0 pointer-events-none"

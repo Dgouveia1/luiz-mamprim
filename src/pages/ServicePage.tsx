@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Seo from "../components/Seo";
 import SmartLink from "../components/SmartLink";
 import { getServiceBySlug, servicePages } from "../data/services";
+import { cityPages } from "../data/cities";
 import NotFoundPage from "./NotFoundPage";
 
 const SITE_URL = "https://luizmamprin.adv.br";
@@ -125,7 +126,7 @@ export default function ServicePage({ slug: slugProp }: ServicePageProps) {
                 <span aria-hidden="true">→</span>
               </a>
               <SmartLink
-                to="/contato"
+                to="/contato/"
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-[var(--border-strong)] text-[var(--text)] font-medium transition-all hover:bg-[var(--bg-elev)] hover:border-[var(--accent)]"
               >
                 Outros canais
@@ -178,7 +179,7 @@ export default function ServicePage({ slug: slugProp }: ServicePageProps) {
                 {related.map((r) => (
                   <SmartLink
                     key={r.slug}
-                    to={`/${r.slug}`}
+                    to={`/${r.slug}/`}
                     className="block p-6 border border-[var(--border-soft)] rounded-[var(--radius-md)] bg-[var(--bg-elev)] hover:border-[var(--accent)] transition-colors"
                   >
                     <div className="font-[var(--font-mono)] text-[10.5px] text-[var(--accent)] tracking-[0.12em] uppercase mb-2">
@@ -194,6 +195,30 @@ export default function ServicePage({ slug: slugProp }: ServicePageProps) {
             </div>
           </section>
         )}
+
+        <section className="max-w-[1080px] mx-auto px-5 sm:px-8 lg:px-12 mt-12">
+          <div className="border-t border-[var(--border-soft)] pt-12">
+            <span className="eyebrow">Cidades atendidas</span>
+            <p className="text-[var(--text-soft)] mt-3 max-w-[60ch] text-[15px]">
+              Atuamos com {service.navLabel.toLowerCase()} em Fernandópolis e em todas as comarcas
+              da região noroeste paulista.
+            </p>
+            <div className="flex flex-wrap gap-2.5 mt-5">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[var(--accent)] text-[#1a1408] text-sm font-medium">
+                Fernandópolis · sede
+              </span>
+              {cityPages.map((c) => (
+                <SmartLink
+                  key={c.slug}
+                  to={`/${c.slug}/`}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[var(--border-soft)] text-[var(--text-soft)] text-sm hover:border-[var(--accent)] hover:text-[var(--accent)] transition-colors"
+                >
+                  {c.name} →
+                </SmartLink>
+              ))}
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />

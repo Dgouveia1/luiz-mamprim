@@ -50,7 +50,7 @@ export default function About() {
                 <span aria-hidden="true">→</span>
               </a>
               <SmartLink
-                to="/contato"
+                to="/contato/"
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-[var(--border-strong)] text-[var(--text)] font-medium transition-all hover:bg-[var(--bg-elev)] hover:border-[var(--accent)]"
               >
                 Onde atendo

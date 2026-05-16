@@ -119,7 +119,7 @@ export default function CityPage({ slug: slugProp }: CityPageProps) {
                 <span aria-hidden="true">→</span>
               </a>
               <SmartLink
-                to="/contato"
+                to="/contato/"
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-[var(--border-strong)] text-[var(--text)] font-medium transition-all hover:bg-[var(--bg-elev)] hover:border-[var(--accent)]"
               >
                 Outros canais
@@ -141,6 +141,35 @@ export default function CityPage({ slug: slugProp }: CityPageProps) {
                 <li key={i}>{a}</li>
               ))}
             </ul>
+
+            {city.forumInfo && city.forumInfo.length > 0 && (
+              <>
+                <h2>Fórum e comarca competente</h2>
+                {city.forum && (
+                  <p>
+                    <strong>{city.forum}</strong>
+                  </p>
+                )}
+                {city.forumInfo.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </>
+            )}
+
+            {city.remoteSupport && city.remoteSupport.length > 0 && (
+              <>
+                <h2>Atendimento on-line e híbrido</h2>
+                <p>
+                  Quando o caso permite, parte do trabalho é feita à distância — sem perda de
+                  qualidade técnica. Pelo menos:
+                </p>
+                <ul>
+                  {city.remoteSupport.map((r, i) => (
+                    <li key={i}>{r}</li>
+                  ))}
+                </ul>
+              </>
+            )}
 
             <h2>Perguntas frequentes — {city.name}</h2>
             {city.faq.map((qa, i) => (
@@ -164,7 +193,7 @@ export default function CityPage({ slug: slugProp }: CityPageProps) {
               {featuredServices.map((s) => (
                 <SmartLink
                   key={s.slug}
-                  to={`/${s.slug}`}
+                  to={`/${s.slug}/`}
                   className="block p-6 border border-[var(--border-soft)] rounded-[var(--radius-md)] bg-[var(--bg-elev)] hover:border-[var(--accent)] transition-colors"
                 >
                   <div className="font-[var(--font-mono)] text-[10.5px] text-[var(--accent)] tracking-[0.12em] uppercase mb-2">

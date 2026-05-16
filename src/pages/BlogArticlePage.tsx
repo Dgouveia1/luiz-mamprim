@@ -103,7 +103,7 @@ export default function BlogArticlePage({ slug: slugProp }: BlogArticlePageProps
                 Início
               </SmartLink>
               <span className="opacity-50">/</span>
-              <SmartLink to="/blog" className="hover:text-[var(--accent)] transition-colors">
+              <SmartLink to="/blog/" className="hover:text-[var(--accent)] transition-colors">
                 Blog
               </SmartLink>
               <span className="opacity-50">/</span>
@@ -128,7 +128,7 @@ export default function BlogArticlePage({ slug: slugProp }: BlogArticlePageProps
         <section className="mt-20 px-5 sm:px-8">
           <div className="max-w-[680px] mx-auto pt-10 border-t border-[var(--border-soft)] flex flex-wrap justify-between items-center gap-4">
             <SmartLink
-              to="/blog"
+              to="/blog/"
               className="inline-flex items-center gap-2 text-[var(--text-soft)] text-sm hover:text-[var(--accent)] transition-colors"
             >
               <span aria-hidden="true">←</span>

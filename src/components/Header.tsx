@@ -8,7 +8,7 @@ const navLinks = [
   { to: "/", label: "Início" },
   { to: "/#areas", label: "Áreas" },
   { to: "/#sobre", label: "Sobre" },
-  { to: "/blog", label: "Blog" },
+  { to: "/blog/", label: "Blog" },
   { to: "/#faq", label: "Dúvidas" },
 ];
 
@@ -48,6 +48,10 @@ export default function Header() {
               <img
                 src={logoImg}
                 alt=""
+                width={36}
+                height={36}
+                loading="eager"
+                decoding="async"
                 className="w-9 h-9 rounded-md object-cover"
               />
               <span className="flex flex-col leading-tight">
@@ -75,7 +79,7 @@ export default function Header() {
 
             <div className="flex gap-2.5 items-center">
               <SmartLink
-                to="/contato"
+                to="/contato/"
                 className="hidden lg:inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--border-strong)] text-[var(--text)] text-sm font-medium transition-all hover:bg-[var(--bg-elev)] hover:border-[var(--accent)]"
               >
                 Contato
@@ -124,7 +128,7 @@ export default function Header() {
               </SmartLink>
             ))}
             <SmartLink
-              to="/contato"
+              to="/contato/"
               onClick={() => setOpen(false)}
               className="text-2xl font-[var(--font-display)] py-3.5 border-b border-[var(--border-soft)] text-[var(--text)] hover:text-[var(--accent)] transition-colors"
             >

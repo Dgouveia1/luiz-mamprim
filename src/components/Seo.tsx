@@ -24,9 +24,13 @@ export default function Seo({
   publishedAt,
   noindex,
 }: Props) {
-  const fullCanonical = `${SITE_URL}${
-    canonicalPath.startsWith("/") ? canonicalPath : `/${canonicalPath}`
-  }`;
+  const normalizedPath = canonicalPath.startsWith("/")
+    ? canonicalPath
+    : `/${canonicalPath}`;
+  const withTrailingSlash = normalizedPath.endsWith("/")
+    ? normalizedPath
+    : `${normalizedPath}/`;
+  const fullCanonical = `${SITE_URL}${withTrailingSlash}`;
   const image = ogImage || DEFAULT_OG_IMAGE;
 
   const ldArray = jsonLd ? (Array.isArray(jsonLd) ? jsonLd : [jsonLd]) : [];

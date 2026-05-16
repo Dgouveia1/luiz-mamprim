@@ -11,7 +11,9 @@ import {
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
 import Seo from "../components/Seo";
 import SmartLink from "../components/SmartLink";
-import perfilImg from "../public/perfil.png";
+import Picture from "../components/Picture";
+import perfilWebp from "../public/perfil.webp";
+import perfilAvif from "../public/perfil.avif";
 
 type BioLink = {
   label: string;
@@ -102,11 +104,17 @@ export default function BioPage() {
           <div className="relative w-28 h-28 mx-auto">
             <div className="absolute inset-0 rounded-full bg-gradient-to-br from-[var(--accent)] via-[var(--accent-deep)] to-[var(--accent)] p-[2px]">
               <div className="w-full h-full rounded-full overflow-hidden bg-[var(--bg-elev)]">
-                <img
-                  src={perfilImg}
-                  alt="Dr. Luiz Henrique Mamprin"
+                <Picture
+                  avif={perfilAvif}
+                  webp={perfilWebp}
+                  fallback={perfilWebp}
+                  alt="Dr. Luiz Henrique Mamprin, advogado em Fernandópolis"
+                  width={112}
+                  height={112}
                   className="w-full h-full object-cover"
                   style={{ objectPosition: "center 18%" }}
+                  loading="eager"
+                  fetchPriority="high"
                 />
               </div>
             </div>

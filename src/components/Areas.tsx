@@ -29,7 +29,7 @@ const areas: Area[] = [
         <path d="M22 32 L29 39 L42 26" />
       </svg>
     ),
-    to: "/advogado-criminalista-fernandopolis",
+    to: "/advogado-criminalista-fernandopolis/",
   },
   {
     number: "02 · Família",
@@ -51,7 +51,7 @@ const areas: Area[] = [
         <path d="M30 56 C30 46 36 40 42 40 C48 40 54 46 54 56" />
       </svg>
     ),
-    to: "/advogado-familia-fernandopolis",
+    to: "/advogado-familia-fernandopolis/",
   },
 ];
 
@@ -114,7 +114,7 @@ export default function Areas() {
                   <span aria-hidden="true">→</span>
                 </SmartLink>
                 <SmartLink
-                  to="/contato"
+                  to="/contato/"
                   className="inline-flex items-center gap-2 text-[var(--text-soft)] text-xs hover:text-[var(--accent)] transition-colors"
                 >
                   Falar sobre meu caso →

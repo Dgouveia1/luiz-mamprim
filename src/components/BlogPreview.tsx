@@ -30,7 +30,7 @@ export default function BlogPreview() {
               transition={{ duration: 0.6, delay: i * 0.08 }}
             >
               <SmartLink
-                to={`/blog/${post.slug}`}
+                to={`/blog/${post.slug}/`}
                 className="flex flex-col gap-3.5 p-7 bg-[var(--bg)] border border-[var(--border-soft)] rounded-[var(--radius-md)] transition-all hover:border-[var(--accent)] hover:-translate-y-0.5 h-full"
               >
                 <div className="flex gap-3 items-center font-[var(--font-mono)] text-[11px] text-[var(--text-muted)] tracking-[0.06em] uppercase">
@@ -55,7 +55,7 @@ export default function BlogPreview() {
 
         <div className="mt-12 text-center">
           <SmartLink
-            to="/blog"
+            to="/blog/"
             className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-[var(--border-strong)] text-[var(--text)] font-medium transition-all hover:bg-[var(--bg-elev-2)] hover:border-[var(--accent)]"
           >
             Ver todos os artigos
