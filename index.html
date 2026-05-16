@@ -1,33 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="pt-BR">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Primary Meta Tags -->
-  <title>Dr. Luiz Henrique Mamprin | Advogado Criminalista e de Família em Fernandópolis</title>
-  <meta name="title" content="Dr. Luiz Henrique Mamprin | Advogado Criminalista e de Família em Fernandópolis" />
-  <meta name="description"
-    content="Atuação especializada em Direito Penal e Direito de Família em Fernandópolis/SP e região. Defesa estratégica, ética e atendimento ágil. Agende sua consulta." />
-  <meta name="keywords"
-    content="advogado, criminalista, direito penal, direito de família, divórcio, habeas corpus, Fernandópolis, SP, advogado familiar, pensão alimentícia, Luiz Henrique Mamprin, HVK Advogados" />
+  <!-- Per-page <title>, <meta description>, OG, canonical and JSON-LD are injected per route by <Seo /> via vite-react-ssg's <Head/>. -->
   <meta name="author" content="Dr. Luiz Henrique Mamprin" />
 
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://drluizmamprin.adv.br/" />
-  <meta property="og:title" content="Dr. Luiz Henrique Mamprin | Advogado Criminalista e de Família" />
-  <meta property="og:description"
-    content="Atuação especializada em Direito Penal e Direito de Família em Fernandópolis/SP e região. Defesa estratégica, ética e atendimento ágil." />
-  <meta property="og:image" content="/perfil.png" />
-
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://drluizmamprin.adv.br/" />
-  <meta property="twitter:title" content="Dr. Luiz Henrique Mamprin | Advogado Criminalista e de Família" />
-  <meta property="twitter:description"
-    content="Atuação especializada em Direito Penal e Direito de Família em Fernandópolis/SP e região. Defesa estratégica, ética e atendimento ágil." />
+  <!-- Geo / Local (constant for the office) -->
+  <meta name="geo.region" content="BR-SP" />
+  <meta name="geo.placename" content="Fernandópolis" />
+  <meta name="geo.position" content="-20.2839;-50.2466" />
+  <meta name="ICBM" content="-20.2839, -50.2466" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="/src/public/logo.png" />
@@ -42,6 +27,17 @@
 
 <body>
   <div id="root"></div>
+  <script>
+    (function () {
+      try {
+        var p = sessionStorage.getItem("ghp_redirect");
+        if (p) {
+          sessionStorage.removeItem("ghp_redirect");
+          history.replaceState(null, "", p);
+        }
+      } catch (e) { /* noop */ }
+    })();
+  </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
 

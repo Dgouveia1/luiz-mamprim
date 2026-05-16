@@ -6,3 +6,20 @@ coverage/
 *.log
 .env*
 !.env.example
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.venv/
+.pytest_cache/
+.mypy_cache/
+
+# Supabase CLI local state
+supabase/.branches/
+supabase/.temp/
+
+# IDE
+.vscode/
+.idea/

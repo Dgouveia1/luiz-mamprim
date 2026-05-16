@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import ReviewsVerticalScroll from "./ReviewsVerticalScroll";
+import SmartLink from "./SmartLink";
 
 const WHATSAPP_URL =
   "https://wa.me/5517996324627?text=Ol%C3%A1%20Dr.%20Luiz%2C%20gostaria%20de%20agendar%20uma%20consulta.";
@@ -48,12 +49,12 @@ export default function About() {
                 Agendar conversa
                 <span aria-hidden="true">→</span>
               </a>
-              <a
-                href="#contato"
+              <SmartLink
+                to="/contato"
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-[var(--border-strong)] text-[var(--text)] font-medium transition-all hover:bg-[var(--bg-elev)] hover:border-[var(--accent)]"
               >
                 Onde atendo
-              </a>
+              </SmartLink>
             </div>
           </motion.div>
 

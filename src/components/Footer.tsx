@@ -1,10 +1,17 @@
 import logoImg from "../public/logo.png";
+import SmartLink from "./SmartLink";
+import { servicePages } from "../data/services";
+import { cityPages } from "../data/cities";
 
 export default function Footer() {
+  const penal = servicePages.filter((s) => s.area === "penal").slice(0, 4);
+  const familia = servicePages.filter((s) => s.area === "familia").slice(0, 4);
+  const cities = cityPages.slice(0, 5);
+
   return (
     <footer className="border-t border-[var(--border-soft)] bg-[#060606] pt-20 pb-8 mt-16">
       <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 md:gap-12 pb-14 border-b border-[var(--border-soft)]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-10 md:gap-12 pb-14 border-b border-[var(--border-soft)]">
           <div className="sm:col-span-2 md:col-span-1">
             <div className="flex items-center gap-3">
               <img src={logoImg} alt="" className="w-10 h-10 rounded-md object-cover" />
@@ -20,33 +27,41 @@ export default function Footer() {
             </p>
           </div>
 
-          <FooterCol title="Áreas">
-            <FooterLink href="#areas">Direito Penal</FooterLink>
-            <FooterLink href="#areas">Direito de Família</FooterLink>
+          <FooterCol title="Direito Penal">
+            {penal.map((s) => (
+              <FooterLink key={s.slug} to={`/${s.slug}`}>
+                {s.navLabel}
+              </FooterLink>
+            ))}
+          </FooterCol>
+
+          <FooterCol title="Direito de Família">
+            {familia.map((s) => (
+              <FooterLink key={s.slug} to={`/${s.slug}`}>
+                {s.navLabel}
+              </FooterLink>
+            ))}
+          </FooterCol>
+
+          <FooterCol title="Cidades atendidas">
+            <FooterLink to="/">Fernandópolis</FooterLink>
+            {cities.map((c) => (
+              <FooterLink key={c.slug} to={`/${c.slug}`}>
+                {c.name}
+              </FooterLink>
+            ))}
           </FooterCol>
 
           <FooterCol title="Site">
-            <FooterLink href="#sobre">Sobre mim</FooterLink>
-            <FooterLink href="#blog">Blog</FooterLink>
-            <FooterLink href="#contato">Contato</FooterLink>
-          </FooterCol>
-
-          <FooterCol title="Contato">
-            <FooterLink
-              href="https://wa.me/5517996324627"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <FooterLink to="/#sobre">Sobre mim</FooterLink>
+            <FooterLink to="/blog">Blog</FooterLink>
+            <FooterLink to="/contato">Contato</FooterLink>
+            <FooterLink href="https://wa.me/5517996324627" external>
               WhatsApp · (17) 99632-4627
             </FooterLink>
-            <FooterLink
-              href="https://www.instagram.com/drluizmamprin_adv/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <FooterLink href="https://www.instagram.com/drluizmamprin_adv/" external>
               Instagram
             </FooterLink>
-            <FooterLink href="#contato">Endereço · Fernandópolis</FooterLink>
           </FooterCol>
         </div>
 
@@ -73,26 +88,38 @@ function FooterCol({ title, children }: { title: string; children: React.ReactNo
 }
 
 function FooterLink({
+  to,
   href,
   children,
-  target,
-  rel,
+  external,
 }: {
-  href: string;
+  to?: string;
+  href?: string;
   children: React.ReactNode;
-  target?: string;
-  rel?: string;
+  external?: boolean;
 }) {
+  if (external && href) {
+    return (
+      <li>
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[var(--text-soft)] text-[14.5px] hover:text-[var(--accent)] transition-colors"
+        >
+          {children}
+        </a>
+      </li>
+    );
+  }
   return (
     <li>
-      <a
-        href={href}
-        target={target}
-        rel={rel}
+      <SmartLink
+        to={to || "/"}
         className="text-[var(--text-soft)] text-[14.5px] hover:text-[var(--accent)] transition-colors"
       >
         {children}
-      </a>
+      </SmartLink>
     </li>
   );
 }

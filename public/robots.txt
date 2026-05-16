@@ -5,4 +5,4 @@ Allow: /
 Allow: /llms.txt
 
 # Sitemap
-Sitemap: https://drluizmamprin.adv.br/sitemap.xml
+Sitemap: https://luizmamprin.adv.br/sitemap.xml

@@ -1,5 +1,6 @@
 import { motion } from "motion/react";
 import perfilImg from "../public/perfil.png";
+import SmartLink from "./SmartLink";
 
 const WHATSAPP_URL =
   "https://wa.me/5517996324627?text=Ol%C3%A1%20Dr.%20Luiz%2C%20gostaria%20de%20agendar%20uma%20consulta.";
@@ -32,16 +33,26 @@ export default function Hero() {
               </span>
             </div>
 
-            <h1 className="font-[var(--font-display)] text-[clamp(44px,6.6vw,100px)] leading-[1.05] mb-7 text-[var(--text)]">
-              Defesa <em>técnica</em>,<br /> decisão <em>humana.</em>
+            <h1 className="sr-only">
+              Advogado em Fernandópolis — Direito Penal e Direito de Família | Dr. Luiz Henrique
+              Mamprin (OAB/SP 486.984). Atendimento em Fernandópolis, Votuporanga, Jales, Estrela
+              d'Oeste, Meridiano, Pedranópolis, Macedônia e Mira Estrela.
             </h1>
+            <p
+              aria-hidden="true"
+              className="font-[var(--font-display)] text-[clamp(44px,6.6vw,100px)] leading-[1.05] mb-7 text-[var(--text)]"
+            >
+              Defesa <em>técnica</em>,<br /> decisão <em>humana.</em>
+            </p>
 
             <p className="text-[clamp(17px,1.3vw,19px)] text-[var(--text-soft)] leading-[1.55] max-w-[52ch] mb-8">
               Advocacia especializada em{" "}
               <strong className="text-[var(--text)] font-medium">Direito Penal</strong> e{" "}
               <strong className="text-[var(--text)] font-medium">Direito de Família</strong> em
-              Fernandópolis e toda a região noroeste paulista. Você não está sozinho neste momento —
-              e cada passo será explicado, planejado e defendido com seriedade.
+              Fernandópolis/SP. Atendimento também em Votuporanga, Jales, Estrela d'Oeste,
+              Meridiano, Pedranópolis, Macedônia, Mira Estrela e demais comarcas da região
+              noroeste paulista. Você não está sozinho neste momento — e cada passo será explicado,
+              planejado e defendido com seriedade.
             </p>
 
             <div className="flex flex-wrap gap-3 mb-12">
@@ -54,12 +65,12 @@ export default function Hero() {
                 Agendar consulta no WhatsApp
                 <span aria-hidden="true">→</span>
               </a>
-              <a
-                href="#areas"
+              <SmartLink
+                to="/#areas"
                 className="inline-flex items-center gap-2 px-6 py-4 rounded-full border border-[var(--border-strong)] text-[var(--text)] font-medium transition-all hover:bg-[var(--bg-elev)] hover:border-[var(--accent)]"
               >
                 Conhecer áreas de atuação
-              </a>
+              </SmartLink>
             </div>
 
             <div className="flex gap-6 sm:gap-10 pt-7 border-t border-[var(--border-soft)]">

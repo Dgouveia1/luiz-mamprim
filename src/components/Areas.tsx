@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import SmartLink from "./SmartLink";
 
 type Area = {
   number: string;
@@ -6,6 +7,7 @@ type Area = {
   desc: string;
   tags: string[];
   glyph: React.ReactNode;
+  to: string;
 };
 
 const areas: Area[] = [
@@ -27,6 +29,7 @@ const areas: Area[] = [
         <path d="M22 32 L29 39 L42 26" />
       </svg>
     ),
+    to: "/advogado-criminalista-fernandopolis",
   },
   {
     number: "02 · Família",
@@ -48,6 +51,7 @@ const areas: Area[] = [
         <path d="M30 56 C30 46 36 40 42 40 C48 40 54 46 54 56" />
       </svg>
     ),
+    to: "/advogado-familia-fernandopolis",
   },
 ];
 
@@ -102,13 +106,19 @@ export default function Areas() {
                 ))}
               </div>
               <div className="mt-auto pt-8 border-t border-dashed border-[var(--border)] flex justify-between items-end gap-4">
-                <a
-                  href="#contato"
+                <SmartLink
+                  to={area.to}
                   className="inline-flex items-center gap-2 text-[var(--accent)] text-sm font-medium border-b border-transparent hover:border-[var(--accent)] transition-colors pb-0.5"
                 >
-                  Falar sobre meu caso
+                  Saber mais
                   <span aria-hidden="true">→</span>
-                </a>
+                </SmartLink>
+                <SmartLink
+                  to="/contato"
+                  className="inline-flex items-center gap-2 text-[var(--text-soft)] text-xs hover:text-[var(--accent)] transition-colors"
+                >
+                  Falar sobre meu caso →
+                </SmartLink>
               </div>
             </motion.article>
           ))}

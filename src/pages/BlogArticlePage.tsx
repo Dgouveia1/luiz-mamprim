@@ -1,6 +1,12 @@
+import { useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import Seo from "../components/Seo";
+import SmartLink from "../components/SmartLink";
 import { getPostBySlug, type BlogBlock } from "../data/blog";
+import NotFoundPage from "./NotFoundPage";
+
+const SITE_URL = "https://luizmamprin.adv.br";
 
 function renderBlock(block: BlogBlock, i: number) {
   switch (block.kind) {
@@ -27,37 +33,56 @@ function renderBlock(block: BlogBlock, i: number) {
   }
 }
 
-export default function BlogArticlePage({ slug }: { slug: string }) {
+export type BlogArticlePageProps = { slug?: string };
+
+export default function BlogArticlePage({ slug: slugProp }: BlogArticlePageProps) {
+  const params = useParams();
+  const slug = slugProp || params.slug || "";
   const post = getPostBySlug(slug);
 
-  if (!post) {
-    return (
-      <div className="bg-[var(--bg)] min-h-screen text-[var(--text)]">
-        <Header />
-        <main className="pt-40 pb-24">
-          <div className="max-w-[680px] mx-auto px-5 text-center">
-            <span className="eyebrow no-rule">404</span>
-            <h1 className="font-[var(--font-display)] text-[clamp(36px,5vw,56px)] mt-4 mb-6">
-              Artigo não encontrado.
-            </h1>
-            <p className="text-[var(--text-soft)] mb-8">
-              O artigo que você procurou não existe ou foi movido.
-            </p>
-            <a
-              href="#blog"
-              className="inline-flex items-center gap-2 px-6 py-4 rounded-full bg-[var(--accent)] text-[#1a1408] font-medium"
-            >
-              Ver todos os artigos →
-            </a>
-          </div>
-        </main>
-        <Footer />
-      </div>
-    );
-  }
+  if (!post) return <NotFoundPage />;
+
+  const summary = post.body
+    .filter((b): b is { kind: "p"; text: string } => b.kind === "p")
+    .map((b) => b.text)
+    .join(" ")
+    .slice(0, 200);
+
+  const jsonLd = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt,
+      url: `${SITE_URL}/blog/${post.slug}`,
+      datePublished: post.publishedAt,
+      dateModified: post.publishedAt,
+      author: { "@id": `${SITE_URL}/#person` },
+      publisher: { "@id": `${SITE_URL}/#attorney` },
+      mainEntityOfPage: `${SITE_URL}/blog/${post.slug}`,
+      articleSection: post.category === "Penal" ? "Direito Penal" : "Direito de Família",
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Início", item: `${SITE_URL}/` },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog` },
+        { "@type": "ListItem", position: 3, name: post.title, item: `${SITE_URL}/blog/${post.slug}` },
+      ],
+    },
+  ];
 
   return (
     <div className="bg-[var(--bg)] min-h-screen text-[var(--text)] selection:bg-[var(--accent)] selection:text-[var(--bg)]">
+      <Seo
+        title={`${post.title} | Blog — Dr. Luiz Mamprin`}
+        description={post.excerpt || summary}
+        canonicalPath={`/blog/${post.slug}`}
+        type="article"
+        publishedAt={post.publishedAt}
+        jsonLd={jsonLd}
+      />
       <Header />
 
       <main className="pt-32 pb-20">
@@ -74,13 +99,13 @@ export default function BlogArticlePage({ slug }: { slug: string }) {
               className="flex gap-2 items-center font-[var(--font-mono)] text-[11px] text-[var(--text-muted)] tracking-[0.1em] uppercase mb-6 flex-wrap"
               aria-label="Breadcrumb"
             >
-              <a href="#" className="hover:text-[var(--accent)] transition-colors">
+              <SmartLink to="/" className="hover:text-[var(--accent)] transition-colors">
                 Início
-              </a>
+              </SmartLink>
               <span className="opacity-50">/</span>
-              <a href="#blog" className="hover:text-[var(--accent)] transition-colors">
+              <SmartLink to="/blog" className="hover:text-[var(--accent)] transition-colors">
                 Blog
-              </a>
+              </SmartLink>
               <span className="opacity-50">/</span>
               <span className="text-[var(--accent)]">{post.category}</span>
             </nav>
@@ -102,13 +127,13 @@ export default function BlogArticlePage({ slug }: { slug: string }) {
 
         <section className="mt-20 px-5 sm:px-8">
           <div className="max-w-[680px] mx-auto pt-10 border-t border-[var(--border-soft)] flex flex-wrap justify-between items-center gap-4">
-            <a
-              href="#blog"
+            <SmartLink
+              to="/blog"
               className="inline-flex items-center gap-2 text-[var(--text-soft)] text-sm hover:text-[var(--accent)] transition-colors"
             >
               <span aria-hidden="true">←</span>
               Voltar para o blog
-            </a>
+            </SmartLink>
             <a
               href="https://wa.me/5517996324627?text=Ol%C3%A1%20Dr.%20Luiz%2C%20li%20o%20artigo%20no%20site%20e%20gostaria%20de%20conversar."
               target="_blank"

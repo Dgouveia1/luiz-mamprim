@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "motion/react";
 import { Menu, X } from "lucide-react";
 import logoImg from "../public/logo.png";
+import SmartLink from "./SmartLink";
 
 const navLinks = [
-  { href: "#", label: "Início" },
-  { href: "#areas", label: "Áreas" },
-  { href: "#sobre", label: "Sobre" },
-  { href: "#blog", label: "Blog" },
-  { href: "#faq", label: "Dúvidas" },
+  { to: "/", label: "Início" },
+  { to: "/#areas", label: "Áreas" },
+  { to: "/#sobre", label: "Sobre" },
+  { to: "/blog", label: "Blog" },
+  { to: "/#faq", label: "Dúvidas" },
 ];
 
 const WHATSAPP_URL =
@@ -43,7 +44,7 @@ export default function Header() {
       >
         <div className="max-w-[1280px] mx-auto px-5 sm:px-8 lg:px-12">
           <nav className="flex items-center justify-between gap-6" aria-label="Principal">
-            <a href="#" className="flex items-center gap-3 shrink-0">
+            <SmartLink to="/" className="flex items-center gap-3 shrink-0">
               <img
                 src={logoImg}
                 alt=""
@@ -57,28 +58,28 @@ export default function Header() {
                   OAB/SP 486.984
                 </span>
               </span>
-            </a>
+            </SmartLink>
 
             <ul className="hidden lg:flex gap-1 items-center list-none p-0">
               {navLinks.map((l) => (
-                <li key={l.href}>
-                  <a
-                    href={l.href}
+                <li key={l.to}>
+                  <SmartLink
+                    to={l.to}
                     className="px-4 py-2.5 text-sm text-[var(--text-soft)] rounded-full transition-colors hover:text-[var(--text)]"
                   >
                     {l.label}
-                  </a>
+                  </SmartLink>
                 </li>
               ))}
             </ul>
 
             <div className="flex gap-2.5 items-center">
-              <a
-                href="#contato"
+              <SmartLink
+                to="/contato"
                 className="hidden lg:inline-flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--border-strong)] text-[var(--text)] text-sm font-medium transition-all hover:bg-[var(--bg-elev)] hover:border-[var(--accent)]"
               >
                 Contato
-              </a>
+              </SmartLink>
               <a
                 href={WHATSAPP_URL}
                 target="_blank"
@@ -113,22 +114,22 @@ export default function Header() {
             className="fixed inset-0 z-40 bg-[rgba(10,10,10,0.96)] backdrop-blur-xl pt-24 px-6 pb-8 flex flex-col gap-2 lg:hidden"
           >
             {navLinks.map((l) => (
-              <a
-                key={l.href}
-                href={l.href}
+              <SmartLink
+                key={l.to}
+                to={l.to}
                 onClick={() => setOpen(false)}
                 className="text-2xl font-[var(--font-display)] py-3.5 border-b border-[var(--border-soft)] text-[var(--text)] hover:text-[var(--accent)] transition-colors"
               >
                 {l.label}
-              </a>
+              </SmartLink>
             ))}
-            <a
-              href="#contato"
+            <SmartLink
+              to="/contato"
               onClick={() => setOpen(false)}
               className="text-2xl font-[var(--font-display)] py-3.5 border-b border-[var(--border-soft)] text-[var(--text)] hover:text-[var(--accent)] transition-colors"
             >
               Contato
-            </a>
+            </SmartLink>
             <a
               href={WHATSAPP_URL}
               target="_blank"

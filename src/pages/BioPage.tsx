@@ -9,6 +9,8 @@ import {
   Star,
 } from "lucide-react";
 import { WhatsAppIcon } from "../components/WhatsAppIcon";
+import Seo from "../components/Seo";
+import SmartLink from "../components/SmartLink";
 import perfilImg from "../public/perfil.png";
 
 type BioLink = {
@@ -32,21 +34,21 @@ const bioLinks: BioLink[] = [
   {
     label: "Conhecer o escritório",
     sub: "Site oficial · áreas, sobre, blog",
-    href: "#",
+    href: "/",
     icon: Sparkles,
     external: false,
   },
   {
     label: "Áreas de atuação",
     sub: "Penal · Família · Sucessões",
-    href: "#areas",
+    href: "/#areas",
     icon: Scale,
     external: false,
   },
   {
     label: "Blog jurídico",
     sub: "Saber também é defesa",
-    href: "#blog",
+    href: "/blog",
     icon: BookOpen,
     external: false,
   },
@@ -76,6 +78,11 @@ const bioLinks: BioLink[] = [
 export default function BioPage() {
   return (
     <div className="min-h-screen bg-[var(--bg)] text-[var(--text)] selection:bg-[var(--accent)] selection:text-[var(--bg)] overflow-x-hidden">
+      <Seo
+        title="Dr. Luiz Mamprin — Links | Advogado em Fernandópolis"
+        description="WhatsApp, Instagram, site, blog, processos no Jusbrasil e localização do escritório do Dr. Luiz Henrique Mamprin."
+        canonicalPath="/bio"
+      />
       <div
         className="absolute top-0 inset-x-0 h-[400px] pointer-events-none"
         aria-hidden="true"
