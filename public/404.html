@@ -4,18 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <meta name="robots" content="noindex,follow" />
-  <title>Página não encontrada — Dr. Luiz Mamprin</title>
+  <meta http-equiv="refresh" content="0; url=/" />
+  <title>Redirecionando — Dr. Luiz Mamprin</title>
   <link rel="canonical" href="https://luizmamprin.adv.br/" />
   <script>
-    // SPA fallback for GitHub Pages: stash the original path and redirect to index.
-    (function () {
-      var l = window.location;
-      var path = l.pathname + l.search;
-      if (path && path !== "/") {
-        sessionStorage.setItem("ghp_redirect", path);
-        l.replace("/" + l.hash);
-      }
-    })();
+    // Pages not found on GitHub Pages are redirected straight to the home page.
+    window.location.replace("/");
   </script>
   <style>
     body { font-family: -apple-system, "Segoe UI", system-ui, sans-serif; background: #0a0a0a; color: #ece6dd; margin: 0; padding: 64px 24px; text-align: center; }
@@ -23,7 +17,6 @@
   </style>
 </head>
 <body>
-  <h1>Página não encontrada</h1>
-  <p>Você será redirecionado em instantes. <a href="/">Voltar ao início</a></p>
+  <p>Redirecionando para a <a href="/">página inicial</a>…</p>
 </body>
 </html>

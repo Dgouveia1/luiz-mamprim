@@ -28,15 +28,8 @@
 <body>
   <div id="root"></div>
   <script>
-    (function () {
-      try {
-        var p = sessionStorage.getItem("ghp_redirect");
-        if (p) {
-          sessionStorage.removeItem("ghp_redirect");
-          history.replaceState(null, "", p);
-        }
-      } catch (e) { /* noop */ }
-    })();
+    // Clear any stale GH Pages path-preservation flag from older builds.
+    try { sessionStorage.removeItem("ghp_redirect"); } catch (e) { /* noop */ }
   </script>
   <script type="module" src="/src/main.tsx"></script>
 </body>
